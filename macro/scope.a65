@@ -1,0 +1,82 @@
+.scope		AsciiControl
+		ack = $06	;acknowledge
+		bel = $07	;ring bell/beep
+		bs  = $08	;backspace
+		can = $18	;cancel
+		cr  = $0d	;carriage return
+		dc1 = $11	;device control 1
+		dc2 = $12	;device control 2
+		dc3 = $13	;device control 3
+		dc4 = $14	;device control 4
+		del = $7f	;delete
+		dle = $10	;data link escape
+		eom = $19	;end of message
+		enq = $05	;enquiry
+		eot = $04	;end of transmission
+		esc = $1b	;escape
+		etb = $17	;end of transmitted block
+		etx = $03	;end of data
+		ff  = $0c	;form feed
+		fs  = $1c	;field separator
+		gs  = $1d	;group seperator
+		ht  = $09	;horizontal tab
+		lf  = $0a	;line feed
+		nak = $15	;negative acknowledge
+		nul = $00	;null
+		rs  = $1e	;record separator
+		si  = $0f	;shift in
+		so  = $0e	;shift out
+		soh = $01	;start of header
+		stx = $02	;start of data
+		sub = $1a	;substitute
+		syn = $16	;synchronous idle
+		us  = $1f	;unit separator
+		vt  = $0b	;vertical tab
+.endscope
+
+.scope		AsciiMisc
+		apost  = "'"	;apostrophe
+		binnum = '0'	;BCD to numeral mask
+		space  = ' '	;whitespace
+		lcend  = 'z'	;end of lowercase ASCII
+		ucend  = 'Z'	;end of uppercase ASCII
+		lctouc = $5c	;LC to UC conversion mask
+		numbin = $0f	;numeral to BCD mask
+		quote  = '"'	;quotation mark
+		lcstrt = 'a'	;start of lowercase ASCII
+		ucstrt = 'A'	;start of lowercase ASCII
+		uctolc = $20	;UC to LC conversion mask
+.endscope
+
+.scope		DataTypeSizeBytes
+		byte   = 1	;byte (8 bits)
+		word   = 2	;word (16 bits)
+		wword  = 3	;wide word (24 bits)
+		xword  = wword	;extended word
+		dword  = 4	;double word (32 bits)
+		dxword = 6	;double extended word (48 bits)
+		lword  = 8	;long word (64 bits)
+		rampg  = $0100	;ram page size
+		short  = byte
+		int    = word
+		long   = dword
+		double = lword
+
+		ptr    = word	;pointer
+		dptr   = ptr*2	;double pointer
+		lngptr = wword	;long pointer
+		ramblk = rampg*2;ram block
+.endscope
+
+.scope		Areas
+		loram  = $000000
+		io     = $00c000
+        hiram  = $00c200
+		rom    = $00d000
+		xram   = $010000
+
+		dpsize = DataTypeSizeBytes::rampg
+		iodev  = DataTypeSizeBytes::rampg
+		dp     = ram
+		stksta = $00bfff	;stack start
+.endscope

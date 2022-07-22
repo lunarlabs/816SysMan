@@ -1,0 +1,27 @@
+.macro		acc8
+	    	sep	#$20	;Put the '816 in 8-bit accumulator mode
+	    	.a8		;let the assembler know
+.endmacro
+
+.macro		acc16
+	    	rep	#$20	;put the '816 in 16-bit accumulator mode
+	    	.a16		;let the assembler know
+.endmacro
+
+.macro		idx8
+		    sep 	#$10	;put the '816 in 8-bit index mode
+	    	.i8		;let the assembler know
+.endmacro
+
+.macro		idx16
+	    	rep	#$10	;put the '816 in 16-bit register mode
+		    .i16		;let the assembler know
+.endmacro
+
+.macro		di		;disable interrupts
+	    	sei
+.endmacro
+
+.macro		ei		;enable interrupts
+	    	cli
+.endmacro

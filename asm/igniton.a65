@@ -1,3 +1,46 @@
 ; IGNTION: system startup, initialization, handoff
 
-;The 65C816 starts off in emulation mode, which drives the E pin high. Since we have 
+;The 65C816 starts off in emulation mode, which drives the E pin high.
+;Since we want to use the signal from the "E" pin as a fault indicator,
+;the reboot code will pretty much be the only code run in emu mode.
+
+.proc   ColdBoot
+        .a8
+        .i8     ;we start with the processor in emulation mode; all registers size 8
+
+        di      ;no IRQs during this part.
+        lda #%01011010  ;first memory test
+        ldx #0
+
+Test:   sta $0000,x     ;write to the zero page...
+        sta $0100,x     ;and the stack page
+        inx             
+        bne Test
+
+        ldy #0
+
+Wait:   inx
+        bne Wait
+        iny
+        bne Wait        ;wait to see if the ram keeps data over time...
+
+Check:  cmp $0000,x     
+        bne Die         ;Not equal! Get dead, kid.
+        cmp $0100,x
+        bne Die
+        inx
+        bne Check
+
+        cmp #%10100101  ;Did we run the second test?
+        beq Step2       ;If so, go to next part.
+
+        lda #%10100101  ;load the inverse test pattern.
+        bra Test        ;And check again.
+
+Die:    stp             ;Bad RAM. Halt the CPU, leaving the fault light on.
+
+Step2:  clc
+        xce             ;We are now in native mode! This turns the E signal off.
+
+
+
