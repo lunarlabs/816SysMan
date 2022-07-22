@@ -1,0 +1,3 @@
+; IGNTION: system startup, initialization, handoff
+
+;The 65C816 starts off in emulation mode, which drives the E pin high. Since we have 
