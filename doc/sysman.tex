@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{memoir}
 
 \usepackage[binary-units=true]{siunitx}
 \usepackage{tikz-timing}
@@ -22,7 +22,7 @@
 
 \renewcommand{\familydefault}{\rmdefault}
 
-\makeglossary
+\makeindex
 
 % facilitates the creation of memory maps. Start address at the bottom,
 % end address at the top.
@@ -48,6 +48,7 @@
 
 \definecolor{lightgray}{gray}{0.8}
 
+\chapterstyle{madsen}
 %\renewcommand*{\chapnamefont}{\huge\sffamily}
 %\renewcommand*{\chapnumfont}{\bfseries\Huge\sffamily}
 %\renewcommand*{\chaptitlefont}{\bfseries\HUGE\sffamily}
@@ -56,9 +57,20 @@
 \author{Matthias H. Lamers}
 
 \begin{document}
+	\frontmatter
 	\maketitle
 	
-	\section*{Overview and Purpose}
+	\tableofcontents
+	
+	\chapter{Preface}
+	\section{Overview and Purpose}
 	
 	\section{Definitions and Notation}
+	
+	\mainmatter
+	\chapter{Nodes, Lists, and Queues}
+	\section{Introduction}
+	With SysMan taking inspiration from the "Exec" Amiga kernel, it makes sense that a major part of the system design is the use of linked-list node structures tracking almost everything that happens in the system. In this way, the kernel only needs to use as much memory as needed without having to resort to fixed-length system tables limiting everything.
+	
+	Also, because most everything consists of lists, only a small amount of functions are needed to manage everything from processes to I/O requests to messages.
 \end{document}

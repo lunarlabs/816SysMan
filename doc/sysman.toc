@@ -1,0 +1,6 @@
+\contentsline {chapter}{Contents}{i}{section*.1}%
+\contentsline {chapter}{Preface}{iii}{chapter*.2}%
+\contentsline {section}{Overview and Purpose}{iii}{section*.3}%
+\contentsline {section}{Definitions and Notation}{iii}{section*.4}%
+\contentsline {chapter}{\chapternumberline {1}Nodes, Lists, and Queues}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}%
