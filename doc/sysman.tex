@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\usepackage[binary-units=true]{siunitx}
+\usepackage{tikz-timing}
+\usetikztiminglibrary{counters}
+\usepackage{pinoutikz}
+\usepackage{listings}
+\usepackage{bytefield}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true}
+\usepackage{pdfpages}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{longtable}
+%\usepackage{algpseudocode}
+%\usepackage{algorithm}
+
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext,newpxmath}
+\usepackage{tgadventor}
+
+\renewcommand{\familydefault}{\rmdefault}
+
+\makeglossary
+
+% facilitates the creation of memory maps. Start address at the bottom,
+% end address at the top.
+% syntax:
+%   \memsection{end address}{start address}{height in lines}{text in box}
+\newcommand{\memsection}[4]{%
+	% define the height of the memsection
+	\bytefieldsetup{bitheight=#3\baselineskip}%
+	\bitbox[]{10}{%
+		\texttt{#1}%print end address
+		\\
+		%   do some spacing
+		\vspace{#3\baselineskip}
+		\vspace{-2\baselineskip}
+		\vspace{-#3pt}
+		\texttt{#2}%print start address
+	}%
+	\bitbox{16}{#4}%    print box with caption
+}
+\makeatletter
+\newcommand*{\activelow}[1]{$\overline{\hbox{#1}}\m@th$}
+\makeatother
+
+\definecolor{lightgray}{gray}{0.8}
+
+%\renewcommand*{\chapnamefont}{\huge\sffamily}
+%\renewcommand*{\chapnumfont}{\bfseries\Huge\sffamily}
+%\renewcommand*{\chaptitlefont}{\bfseries\HUGE\sffamily}
+
+\title{System Manager: A 65C816 Microkernel}
+\author{Matthias H. Lamers}
+
+\begin{document}
+	\maketitle
+	
+	\section*{Overview and Purpose}
+	
+	\section{Definitions and Notation}
+\end{document}
