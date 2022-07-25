@@ -73,4 +73,14 @@
 	With SysMan taking inspiration from the "Exec" Amiga kernel, it makes sense that a major part of the system design is the use of linked-list node structures tracking almost everything that happens in the system. In this way, the kernel only needs to use as much memory as needed without having to resort to fixed-length system tables limiting everything.
 	
 	Also, because most everything consists of lists, only a small amount of functions are needed to manage everything from processes to I/O requests to messages.
+	\section{Structure}
+	A list is composed of a header and its child nodes. The header points to the first and last nodes in the list, and is what is pointed to in any reference to the list. Nodes themselves link to the next and previous nodes in the list, thus making the list doubly-linked. 
+	
+	\subsection{Node Structure}
+	Nodes consist of two main areas: the descriptor and the content.
+	
+	\appendix
+	\chapter{COP commands}
+	System calls to the kernel use the COP instruction, with parameter passing and API offset using the stack. Parameters must be put on the stack in the order specified, then the 8-bit API number placed in the accumulator. The signature byte of the COP command is not used.
+	
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.21)  21 JUL 2022 21:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.21)  23 JUL 2022 03:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1418,24 +1418,20 @@ LaTeX Info: Redefining \not on input line 2457.
 Package: tgadventor 2009/09/10 v1.2 TeX Gyre Adventor as default sans serif fam
 ily
 )
-\sysmanmemglofile=\write5
-\openout5 = `sysman.glo'.
+\sysman@idxfile=\write5
+\openout5 = `sysman.idx'.
 
-
-Writing glossary file sysman.glo 
-\sysman@idxfile=\write6
-\openout6 = `sysman.idx'.
 
 Writing index file sysman.idx 
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 62.
+h' as default language. on input line 59.
 LaTeX Font Info:    Trying to load font information for T1+zplTLF on input line
- 62.
+ 59.
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zpltlf.fd
 File: t1zpltlf.fd 2021/05/25 v1.0 font definition file for T1/zpl/TLF
 )
 LaTeX Font Info:    Font shape `T1/zplTLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 62.
+(Font)              scaled to size 10.0pt on input line 59.
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -1445,52 +1441,52 @@ File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
 ) (sysman.aux)
 \openout1 = `sysman.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 62.
+LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 59.
 LaTeX Font Info:    Trying to load font information for OML+npxmi on input line
- 62.
+ 59.
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/newpx\omlnpxmi.fd
 File: omlnpxmi.fd 2013/03/21 Fontinst v1.933 font definitions for OML/npxmi.
 )
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 59.
 LaTeX Font Info:    Trying to load font information for U+npxexa on input line 
-62.
+59.
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxexa.fd
 File: unpxexa.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxexa.
 )
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 59.
 LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line
- 62.
+ 59.
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmsnpxsy.fd
 File: lmsnpxsy.fd 2016/07/04 Fontinst v1.933 font definitions for LMS/npxsy.
 )
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 59.
 LaTeX Font Info:    Trying to load font information for LMX+npxexx on input lin
-e 62.
+e 59.
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmxnpxexx.fd
 File: lmxnpxexx.fd 2016/07/04 Fontinst v1.933 font definitions for LMX/npxexx.
 )
-LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    ... okay on input line 59.
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\tran
 slations-basic-dictionary-english.trsl
@@ -1498,7 +1494,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 62.
+or `english'. on input line 59.
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -1525,13 +1521,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Info: Command `\dddot' is already robust on input line 62.
-LaTeX Info: Command `\ddddot' is already robust on input line 62.
+LaTeX Info: Command `\dddot' is already robust on input line 59.
+LaTeX Info: Command `\ddddot' is already robust on input line 59.
 \c@lstlisting=\count427
-Package hyperref Info: Link coloring ON on input line 62.
+Package hyperref Info: Link coloring ON on input line 59.
  (sysman.out) (sysman.out)
-\@outlinefile=\write7
-\openout7 = `sysman.out'.
+\@outlinefile=\write6
+\openout6 = `sysman.out'.
 
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
@@ -1544,67 +1540,67 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 \c@mv@tabular=\count428
 \c@mv@boldtabular=\count429
 LaTeX Font Info:    Font shape `T1/zplTLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 65.
+(Font)              scaled to size 14.4pt on input line 62.
 LaTeX Font Info:    Font shape `T1/zplTLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 65.
+(Font)              scaled to size 10.95pt on input line 62.
 LaTeX Font Info:    Trying to load font information for OT1+zplTLF on input lin
-e 65.
+e 62.
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/newpx\ot1zpltlf.fd
 File: ot1zpltlf.fd 2021/05/25 v1.0 font definition file for OT1/zpl/TLF
 )
 LaTeX Font Info:    Font shape `OT1/zplTLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 65.
+(Font)              scaled to size 10.95pt on input line 62.
 LaTeX Font Info:    Font shape `OT1/zplTLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 65.
+(Font)              scaled to size 8.0pt on input line 62.
 LaTeX Font Info:    Font shape `OT1/zplTLF/m/n' will be
-(Font)              scaled to size 6.1pt on input line 65.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
+(Font)              scaled to size 6.1pt on input line 62.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 62.
 
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 62.
 
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+npxmia on input line 
-65.
+62.
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxmia.fd
 File: unpxmia.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxmia.
 )
 LaTeX Font Info:    Trying to load font information for U+npxsym on input line 
-65.
+62.
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsym.fd
 File: unpxsym.fd 2015/03/21 Fontinst v1.933 font definitions for U/npxsym.
 )
 LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 
-65.
+62.
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsyc.fd
 File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 )
 LaTeX Font Info:    Font shape `T1/zplTLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 67.
+(Font)              scaled to size 12.0pt on input line 64.
 LaTeX Font Info:    Font shape `T1/zplTLF/m/sc' will be
-(Font)              scaled to size 12.0pt on input line 67.
+(Font)              scaled to size 12.0pt on input line 64.
 LaTeX Font Info:    Font shape `T1/zplTLF/b/sc' will be
-(Font)              scaled to size 12.0pt on input line 67.
-LaTeX Font Info:    Trying to load font information for T1+qag on input line 67
+(Font)              scaled to size 12.0pt on input line 64.
+LaTeX Font Info:    Trying to load font information for T1+qag on input line 64
 .
 
 (C:\Users\Aussi\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qag.fd
 File: t1qag.fd 2009/09/25 v1.2 font definition file for T1/qag
 )
 LaTeX Font Info:    Font shape `T1/zplTLF/m/n' will be
-(Font)              scaled to size 20.74pt on input line 67.
+(Font)              scaled to size 20.74pt on input line 64.
 LaTeX Font Info:    Font shape `T1/zplTLF/b/n' will be
-(Font)              scaled to size 20.74pt on input line 67.
+(Font)              scaled to size 20.74pt on input line 64.
 
 (sysman.toc
 LaTeX Font Info:    Font shape `T1/zplTLF/b/n' will be
@@ -1622,25 +1618,30 @@ LaTeX Font Info:    Font shape `OT1/zplTLF/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/zplTLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 69.
+(Font)              scaled to size 12.0pt on input line 66.
  [3] [4
 
-] [1
-
 ]
-\tf@toc=\write8
-\openout8 = `sysman.toc'.
+LaTeX Font Info:    Font shape `T1/zplTLF/b/n' will be
+(Font)              scaled to size 10.95pt on input line 79.
+ [1
+
+] [2
+
+] [3]
+\tf@toc=\write7
+\openout7 = `sysman.toc'.
 
  (sysman.aux)
 Package rerunfilecheck Info: File `sysman.out' has not changed.
-(rerunfilecheck)             Checksum: A5DAABF28C202CF561CB9955E7682061;789.
+(rerunfilecheck)             Checksum: 86ED866220059D633E7DCF4A83FF924F;995.
  ) 
 Here is how much of TeX's memory you used:
- 37399 strings out of 478338
- 742682 string characters out of 2836700
- 1032189 words of memory out of 3000000
- 55232 multiletter control sequences out of 15000+600000
- 533820 words of font info for 104 fonts, out of 8000000 for 9000
+ 37402 strings out of 478338
+ 742708 string characters out of 2836700
+ 1033166 words of memory out of 3000000
+ 55231 multiletter control sequences out of 15000+600000
+ 536643 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  115i,11n,118p,421b,905s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Users/Aussi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec-s
@@ -1651,9 +1652,9 @@ tex-gyre/q-ec.enc}<C:/Users/Aussi/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/tex-gyre/qagb.pfb><C:/Users/Aussi/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/newpx/zplb.pfb><C:/Users/Aussi/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/newpx/zplr.pfb>
-Output written on sysman.pdf (5 pages, 122354 bytes).
+Output written on sysman.pdf (7 pages, 129347 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 12 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 110 PDF objects out of 1000 (max. 8388607)
+ 17 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 

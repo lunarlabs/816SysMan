@@ -4,3 +4,6 @@
 \contentsline {section}{Definitions and Notation}{iii}{section*.4}%
 \contentsline {chapter}{\chapternumberline {1}Nodes, Lists, and Queues}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Structure}{1}{section.1.2}%
+\contentsline {subsection}{Node Structure}{1}{section*.5}%
+\contentsline {appendix}{\chapternumberline {A}COP commands}{3}{appendix.A}%
