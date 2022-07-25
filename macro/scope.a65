@@ -67,16 +67,3 @@
 		lngptr = wword	;long pointer
 		ramblk = rampg*2;ram block
 .endscope
-
-.scope		Areas
-		loram  = $000000
-		io     = $00c000
-        hiram  = $00c200
-		rom    = $00d000
-		xram   = $010000
-
-		dpsize = DataTypeSizeBytes::rampg
-		iodev  = DataTypeSizeBytes::rampg
-		dp     = ram
-		stksta = $00bfff	;stack start
-.endscope
