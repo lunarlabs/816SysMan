@@ -1,10 +1,12 @@
 ;   Main build file for 816 System Manager
 
-.macpack generic
 .p816
+.include "macro/scope.a65"
+.macpack generic
+.macpack longbranch
+.include "macro/tweaks.a65"
 
 .code ; Using the code segment of ROM.
 
-.include "macro/scope.a65"
-.include "macro/tweaks.a65"
+
 .include "platform.lib"
