@@ -4,7 +4,18 @@
 .macpack generic
 .macpack longbranch
 
-.code ; Using the code segment of ROM.
+;don't add any imports that use the data segment above this line
+.data
+CurrentTree: .res $2
+CurrentNode: .res $2
+FreeMemTable: .res $2
+InterruptTable: .res $2
+RunningProcessQueue: .res $2
+WaitingProcessTable: .res $2
+DeviceTable: .res $2
+FileSystemTable: .res $2
+
+.code
 
 .include "macro/scope.a65"
 .include "macro/tweaks.a65"
@@ -13,10 +24,9 @@
 
 .include "platform.lib"
 
-.data
-FreeMemTable: .res $2
-InterruptTable: .res $2
-ProcessTable: .res $2
+
+
+
 
 .rodata
 .byte "System Manager for 65C816"
