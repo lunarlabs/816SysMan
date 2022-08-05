@@ -37,3 +37,28 @@
 .macro		ei		;enable interrupts
 	    	cli
 .endmacro
+
+.macro		ldaxy	a, x, y
+.ifnblank	a
+			lda #a
+.endif
+.ifnblank	x
+			ldx #x
+.endif
+.ifnblank	y
+			ldy #y
+.endif
+.endmacro
+
+.macro		copyfwd	size, source, dest
+.if	.paramcount <> 3
+.error "copyfwd called with incorrect number of parameters"
+.else
+			ai16
+			lda		size
+			ldx		.loword		source
+			ldy		.loword		dest
+
+			mvn		source, dest
+.endif
+.endmacro

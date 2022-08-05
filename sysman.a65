@@ -12,3 +12,29 @@
 .include "asm/nodes.a65"
 
 .include "platform.lib"
+
+.data
+FreeMemTable: .res $2
+InterruptTable: .res $2
+ProcessTable: .res $2
+
+.rodata
+.byte "System Manager for 65C816"
+
+
+
+
+;Do not include new instructions after this line.
+
+.org $00FFE0 ;now go to the vectors.
+.word $ffff, $ffff  ;unused native vectors
+.word KernelRq      ;Native COP vector
+.word GotoBreak     ;Native BRK vector
+.word $ffff         ;ABORT line is not used
+.word StartDebug    ;NMI vector
+.word $ffff         ;unused
+
+; Aside from system initialization, we don't use emulation mode.
+.word $ffff, $ffff, $ffff, $ffff, $ffff, $ffff
+.word ColdBoot  ;RESET vector
+.word $ffff
