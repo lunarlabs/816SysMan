@@ -27,7 +27,7 @@
 		si  = $0f	;shift in
 		so  = $0e	;shift out
 		soh = $01	;start of header
-		stx = $02	;start of data
+		sod = $02	;start of data
 		sub = $1a	;substitute
 		syn = $16	;synchronous idle
 		us  = $1f	;unit separator
@@ -35,7 +35,7 @@
 .endscope
 
 .scope		AsciiMisc
-		apost  = "'"	;apostrophe
+		apost  = '''	;apostrophe
 		binnum = '0'	;BCD to numeral mask
 		space  = ' '	;whitespace
 		lcend  = 'z'	;end of lowercase ASCII
