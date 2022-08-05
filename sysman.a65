@@ -7,4 +7,6 @@
 
 .include "macro/scope.a65"
 .include "macro/tweaks.a65"
+.include "asm/ignition.a65"
+.include "asm/nodes.a65"
 .include "platform.lib"

@@ -42,5 +42,7 @@ Die:    stp             ;Bad RAM. Halt the CPU, leaving the fault light on.
 Step2:  clc
         xce             ;We are now in native mode! This turns the E signal off.
 
+; Now we'll do a non-destructive RAM count.
+
 
 

@@ -18,6 +18,18 @@
 		    .i16		;let the assembler know
 .endmacro
 
+.macro		ai8
+			sep #$30	;use 8 bits for both accumulator and indices
+			.a8
+			.i8
+.endmacro
+
+.macro		ai16
+			rep #$30	;use 16 bits for both accumulator and indices
+			.a16
+			.i16
+.endmacro
+
 .macro		di		;disable interrupts
 	    	sei
 .endmacro

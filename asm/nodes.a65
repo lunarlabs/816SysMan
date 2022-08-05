@@ -1,0 +1,38 @@
+; generic node functions.
+; These will never be called using COP traps, so we can make some assumptions:
+;
+; - This was called within bank zero, so we won't need to use RTL
+; - No flags need to be pushed/pulled from stack
+; - the accumulator and index registers are 16 bits
+; - calling function doesn't care about the accumulator
+
+.scope nodes
+        returnAddr  = 2     ;the return address's offset from the stack pointer.
+
+.struct Node
+        nextPtr     .addr
+        prevPtr     .addr
+        type        .byte
+        priority    .byte
+        namePtr     .addr
+.endstruct
+
+.struct Header
+        headPtr     .addr
+        dummy1      .addr       ;This is always zero, to let a search action know when it's reached the header.
+        tailPtr     .addr
+        type        .byte
+        dummy2      .byte
+.endstruct 
+
+.code
+
+; With the accumulator set to the address of a node, gives the next node in the list.
+; A IN: Address of the origin node. (16 bits)
+; A OUT: The origin node's following node. (16 bits)
+; STATUS FLAGS: Sets C if the returned node is the header (that is, the origin was the tail), clears it otherwise.
+.proc   NextNode
+
+.endproc
+
+.endscope
