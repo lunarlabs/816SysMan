@@ -5,7 +5,7 @@
 .macpack longbranch
 
 ;don't add any imports that use the data segment above this line
-.data
+.segment SYSDP
 CurrentTree: .res $2
 CurrentNode: .res $2
 FreeMemTable: .res $2
@@ -15,6 +15,8 @@ WaitingProcessTable: .res $2
 DeviceTable: .res $2
 FileSystemTable: .res $2
 
+.data
+
 .code
 
 .include "macro/scope.a65"
@@ -22,21 +24,10 @@ FileSystemTable: .res $2
 .include "asm/ignition.a65"
 .include "asm/nodes.a65"
 
-.include "platform.lib"
-
-
-
-
-
 .rodata
 .byte "System Manager for 65C816"
 
-
-
-
-;Do not include new instructions after this line.
-
-.org $00FFE0 ;now go to the vectors.
+.segment VECTORS
 .word $ffff, $ffff  ;unused native vectors
 .word KernelRq      ;Native COP vector
 .word GotoBreak     ;Native BRK vector
