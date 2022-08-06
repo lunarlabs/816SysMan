@@ -1,0 +1,57 @@
+Modules list:
+-------------
+dragon816.o:
+    CODE              Offs=000000  Size=00002C  Align=00001  Fill=0000
+    RODATA            Offs=000000  Size=000019  Align=00001  Fill=0000
+    BSS               Offs=000000  Size=000000  Align=00001  Fill=0000
+    DATA              Offs=000000  Size=000000  Align=00001  Fill=0000
+    ZEROPAGE          Offs=000000  Size=000000  Align=00001  Fill=0000
+    NULL              Offs=000000  Size=000000  Align=00001  Fill=0000
+    SYSDP             Offs=000000  Size=000010  Align=00001  Fill=0000
+    VECTORS           Offs=000000  Size=000020  Align=00001  Fill=0000
+
+
+Segment list:
+-------------
+Name                   Start     End    Size  Align
+----------------------------------------------------
+BSS                   000000  000000  000000  00001
+NULL                  000000  000000  000000  00001
+SYSDP                 000000  00000F  000010  00001
+ZEROPAGE              000000  000000  000000  00001
+DATA                  000100  000100  000000  00001
+CODE                  00D010  00D03B  00002C  00001
+RODATA                00D100  00D118  000019  00001
+VECTORS               00FFE0  00FFFF  000020  00001
+
+
+Exports list by name:
+---------------------
+__DATA_LOAD__             00D119  LA    __DATA_RUN__              000100  LA    
+__DATA_SIZE__             000000  EA    __IOCMDBITS__             000006  EA    
+__IOLIMIT__               000008  EA    __IO_FILEOFFS__           000000  EA    
+__IO_LAST__               00C200  LA    __IO_SIZE__               000200  EA    
+__IO_START__              00C200  LA    
+
+
+Exports list by value:
+----------------------
+__IO_FILEOFFS__           000000  EA    __DATA_SIZE__             000000  EA    
+__IOCMDBITS__             000006  EA    __IOLIMIT__               000008  EA    
+__DATA_RUN__              000100  LA    __IO_SIZE__               000200  EA    
+__IO_LAST__               00C200  LA    __IO_START__              00C200  LA    
+__DATA_LOAD__             00D119  LA    
+
+
+Imports list:
+-------------
+__DATA_LOAD__ ([linker generated]):
+__DATA_RUN__ ([linker generated]):
+__DATA_SIZE__ ([linker generated]):
+__IOCMDBITS__ ([linker generated]):
+__IOLIMIT__ ([linker generated]):
+__IO_FILEOFFS__ ([linker generated]):
+__IO_LAST__ ([linker generated]):
+__IO_SIZE__ ([linker generated]):
+__IO_START__ ([linker generated]):
+

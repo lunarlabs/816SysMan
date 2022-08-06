@@ -44,5 +44,5 @@ Step2:  clc
 
 ; Now we'll do a non-destructive RAM count.
 
-
+.endproc
 

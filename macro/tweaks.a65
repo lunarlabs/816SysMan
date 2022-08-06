@@ -38,15 +38,15 @@
 	    	cli
 .endmacro
 
-.macro		ldaxy	a, x, y
-.ifnblank	a
-			lda #a
+.macro		ldaxy	na, nx, ny
+.ifnblank	na
+			lda #na
 .endif
-.ifnblank	x
-			ldx #x
+.ifnblank	nx
+			ldx #nx
 .endif
-.ifnblank	y
-			ldy #y
+.ifnblank	ny
+			ldy #ny
 .endif
 .endmacro
 

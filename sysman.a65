@@ -5,7 +5,7 @@
 .macpack longbranch
 
 ;don't add any imports that use the data segment above this line
-.segment SYSDP
+.segment "SYSDP"
 CurrentTree: .res $2
 CurrentNode: .res $2
 FreeMemTable: .res $2
@@ -19,7 +19,6 @@ FileSystemTable: .res $2
 
 .code
 
-.include "macro/scope.a65"
 .include "macro/tweaks.a65"
 .include "asm/ignition.a65"
 .include "asm/nodes.a65"
@@ -27,15 +26,25 @@ FileSystemTable: .res $2
 .rodata
 .byte "System Manager for 65C816"
 
-.segment VECTORS
+.segment "VECTORS"
 .word $ffff, $ffff  ;unused native vectors
-.word KernelRq      ;Native COP vector
-.word GotoBreak     ;Native BRK vector
+;.word KernelRq      ;Native COP vector
+.word $ffff
+.ifdef GotoBreak
+    .word GotoBreak     ;Native BRK vector
+.else
+    .warning "No BRK vector defined!"
+    .word $ffff
+.endif
 .word $ffff         ;ABORT line is not used
-.word StartDebug    ;NMI vector
+.ifdef StartDebug
+    .word StartDebug    ;NMI vector
+.else
+    .warning "No NMI vector defined!"
+    .word $ffff
+.endif
 .word $ffff         ;unused
-
 ; Aside from system initialization, we don't use emulation mode.
-.word $ffff, $ffff, $ffff, $ffff, $ffff, $ffff
+.word $ffff, $ffff, $ffff, $ffff, $ffff, $ffff, $ffff
 .word ColdBoot  ;RESET vector
 .word $ffff
