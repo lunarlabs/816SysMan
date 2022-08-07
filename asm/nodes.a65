@@ -18,9 +18,9 @@
 .endstruct
 
 .struct Header
-        headPtr     .addr
+        headPtr     .addr       ;if zero, this is an empty list.
         dummy1      .addr       ;This is always zero, to let a search action know when it's reached the header.
-        tailPtr     .addr
+        tailPtr     .addr       ;if headPtr=tailPtr, there's only one node
         type        .byte
         dummy2      .byte
 .endstruct 
