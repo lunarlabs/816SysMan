@@ -4,8 +4,7 @@
 .macpack generic
 .macpack longbranch
 
-;don't add any imports that use the data segment above this line
-.segment "SYSDP"
+.segment "SYSDP" : zeropage
 CurrentTree: .res $2
 CurrentNode: .res $2
 FreeMemTable: .res $2
@@ -28,7 +27,11 @@ FileSystemTable: .res $2
 
 .segment "VECTORS"
 .word $ffff, $ffff  ;unused native vectors
-;.word KernelRq      ;Native COP vector
+.ifdef KernelRq
+    .word KernelRq      ;Native COP vector
+.else
+    .error "Not doing anything without a KernelRq!"
+.endif
 .word $ffff
 .ifdef GotoBreak
     .word GotoBreak     ;Native BRK vector
