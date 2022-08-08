@@ -1,0 +1,13 @@
+.scope MemoryManagement
+
+.struct MemoryTableEntry
+    nextPtr     .addr
+    prevPtr     .addr
+    blockStart  .faraddr
+    blockLength .faraddr
+.endstruct
+
+.data
+
+
+.endscope
