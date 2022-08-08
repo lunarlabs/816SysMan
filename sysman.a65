@@ -7,6 +7,7 @@
 .segment "SYSDP" : zeropage
 CurrentTree: .res $2
 CurrentNode: .res $2
+APIOffset: .res $2
 FreeMemTable: .res $2
 InterruptTable: .res $2
 RunningProcessQueue: .res $2
@@ -15,14 +16,43 @@ DeviceTable: .res $2
 FileSystemTable: .res $2
 
 .data
+FirstMemoryEntry: .res .sizeof(MemoryManagement::MemoryTableEntry), $00
+FirstNode: .res .sizeof(nodes::Node), $00
+
 
 .code
 
 .include "macro/tweaks.a65"
+.include "macro/scope.a65"
 .include "asm/ignition.a65"
 .include "asm/nodes.a65"
 
+.proc KernelRq
+    ai16
+    pha
+    phx
+    phy     ;pushes registers to stack
+    ei
+
+    and $00ff
+    beq InvalidAPI
+
+    dec a
+    cmp #maxapi
+    bcs InvalidAPI
+
+    asl A
+    tax
+    sta APIOffset
+    jmp (APITableLocation,x)
+
+.endproc
+
+.proc InvalidAPI
+.endproc
+
 .rodata
+APITableLocation:
 .byte "System Manager for 65C816"
 
 .segment "VECTORS"

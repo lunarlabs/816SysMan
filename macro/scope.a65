@@ -35,7 +35,7 @@
 .endscope
 
 .scope		AsciiMisc
-		apost  = '''	;apostrophe
+		apost  = $27	;apostrophe
 		binnum = '0'	;BCD to numeral mask
 		space  = ' '	;whitespace
 		lcend  = 'z'	;end of lowercase ASCII
