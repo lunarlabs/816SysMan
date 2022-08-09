@@ -4,6 +4,12 @@
 .macpack generic
 .macpack longbranch
 
+.include "macro/tweaks.a65"
+.include "macro/scope.a65"
+.include "asm/ignition.a65"
+.include "asm/nodes.a65"
+.include "asm/memmgmt.a65"
+
 .segment "SYSDP" : zeropage
 CurrentTree: .res $2
 CurrentNode: .res $2
@@ -22,11 +28,6 @@ FirstNode: .res .sizeof(nodes::Node), $00
 
 .code
 
-.include "macro/tweaks.a65"
-.include "macro/scope.a65"
-.include "asm/ignition.a65"
-.include "asm/nodes.a65"
-
 .proc KernelRq
     ai16
     pha
@@ -38,7 +39,7 @@ FirstNode: .res .sizeof(nodes::Node), $00
     beq InvalidAPI
 
     dec a
-    cmp #maxapi
+;    cmp #maxapi
     bcs InvalidAPI
 
     asl A
@@ -78,6 +79,6 @@ APITableLocation:
 .endif
 .word $ffff         ;unused
 ; Aside from system initialization, we don't use emulation mode.
-.word $ffff, $ffff, $ffff, $ffff, $ffff, $ffff, $ffff
+.word $ffff, $ffff, $ffff, $ffff, $ffff, $ffff
 .word ColdBoot  ;RESET vector
 .word $ffff

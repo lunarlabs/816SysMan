@@ -1,0 +1,5 @@
+
+*.o
+dragon816.txt
+*-listing.txt
+*.out

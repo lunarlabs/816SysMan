@@ -28,7 +28,7 @@
 		so  = $0e	;shift out
 		soh = $01	;start of header
 		sod = $02	;start of data
-		sub = $1a	;substitute
+		sbs = $1a	;substitute
 		syn = $16	;synchronous idle
 		us  = $1f	;unit separator
 		vt  = $0b	;vertical tab
