@@ -74,8 +74,8 @@ APITableLocation:
 .ifdef StartDebug
     .word StartDebug    ;NMI vector
 .else
-    .warning "No NMI vector defined!"
-    .word $ffff
+    .warning "No NMI vector defined, using reset vector"
+    .word _boot
 .endif
 .word $ffff         ;unused
 ;.ifdef InterruptRq
