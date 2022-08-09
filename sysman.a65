@@ -6,9 +6,10 @@
 
 .include "macro/tweaks.a65"
 .include "macro/scope.a65"
-.include "asm/ignition.a65"
 .include "asm/nodes.a65"
 .include "asm/memmgmt.a65"
+
+.import _boot
 
 .segment "SYSDP" : zeropage
 CurrentTree: .res $2
@@ -54,7 +55,7 @@ FirstNode: .res .sizeof(nodes::Node), $00
 
 .rodata
 APITableLocation:
-.byte "System Manager for 65C816"
+.asciiz "System Manager for 65C816"
 
 .segment "VECTORS"
 .word $ffff, $ffff  ;unused native vectors
@@ -63,7 +64,6 @@ APITableLocation:
 .else
     .error "Not doing anything without a KernelRq!"
 .endif
-.word $ffff
 .ifdef GotoBreak
     .word GotoBreak     ;Native BRK vector
 .else
@@ -78,7 +78,14 @@ APITableLocation:
     .word $ffff
 .endif
 .word $ffff         ;unused
+;.ifdef InterruptRq
+;    .word InterruptRq
+;.else
+;    .error "Not doing anything without an InterruptRq!"
+;.endif
+.word $ffff
+
 ; Aside from system initialization, we don't use emulation mode.
 .word $ffff, $ffff, $ffff, $ffff, $ffff, $ffff
-.word ColdBoot  ;RESET vector
+.word _boot  ;RESET vector
 .word $ffff

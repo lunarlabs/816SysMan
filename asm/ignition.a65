@@ -4,8 +4,18 @@
 ;Since we want to use the signal from the "E" pin as a fault indicator,
 ;the reboot code will pretty much be the only code run in emu mode.
 
-.out "Now assembling Ignition..."
 
+.p816
+.macpack generic
+.macpack longbranch
+
+.include "../macro/tweaks.a65"
+.include "../macro/scope.a65"
+
+.export _boot
+.import __DATA_LOAD__, __DATA_SIZE__, __DATA_RUN__      ;linker defined memory constants
+
+_boot:
 .proc   ColdBoot
         .a8
         .i8     ;we start with the processor in emulation mode; all registers size 8
@@ -44,7 +54,7 @@ Die:    stp             ;Bad RAM. Halt the CPU, leaving the fault light on.
 Step2:  clc
         xce             ;We are now in native mode! This turns the E signal off.
 
-; Now we'll do a non-destructive RAM count.
+        ;Now set the stack pointer...
 
 .endproc
 
