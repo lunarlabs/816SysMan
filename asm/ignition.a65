@@ -15,8 +15,13 @@
 .export _boot
 .import __DATA_LOAD__, __DATA_SIZE__, __DATA_RUN__      ;linker defined memory constants
 
+.segment "STARTUP"
 _boot:
 .proc   ColdBoot
+
+        sec     ;If we were called from, for example, NMI acting as RESET, make sure we drop back down into emulation mode...
+        xce
+
         .a8
         .i8     ;we start with the processor in emulation mode; all registers size 8
 

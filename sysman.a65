@@ -10,9 +10,10 @@
 .include "asm/memmgmt.a65"
 
 .import _boot
+.export _node_size = .sizeof(nodes::Node)
 
 .segment "SYSDP" : zeropage
-CurrentTree: .res $2
+CurrentList: .res $2
 CurrentNode: .res $2
 APIOffset: .res $2
 FreeMemTable: .res $2
