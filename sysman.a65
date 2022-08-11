@@ -9,7 +9,7 @@
 .include "asm/nodes.a65"
 .include "asm/memmgmt.a65"
 
-.import _boot
+.import _boot, _debug
 .export _node_size = .sizeof(nodes::Node)
 
 .segment "SYSDP" : zeropage
@@ -72,8 +72,8 @@ APITableLocation:
     .word $ffff
 .endif
 .word $ffff         ;ABORT line is not used
-.ifdef StartDebug
-    .word StartDebug    ;NMI vector
+.ifdef _debug
+    .word _debug    ;NMI vector
 .else
     .warning "No NMI vector defined, using reset vector"
     .word _boot
@@ -88,5 +88,8 @@ APITableLocation:
 
 ; Aside from system initialization, we don't use emulation mode.
 .word $ffff, $ffff, $ffff, $ffff, $ffff, $ffff
-.word _boot  ;RESET vector
+.ifdef _boot
+    .word _boot  ;RESET vector
+.else
+    .error "Not doing anything without a bootloader!"
 .word $ffff
