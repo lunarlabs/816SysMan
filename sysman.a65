@@ -9,13 +9,12 @@
 .include "asm/nodes.a65"
 .include "asm/memmgmt.a65"
 
-.import _boot, _debug
+.import _boot, _debug, _kernelRq
 .export _node_size = .sizeof(nodes::Node)
 
 .segment "SYSDP" : zeropage
 CurrentList: .res $2
 CurrentNode: .res $2
-APIOffset: .res $2
 FreeMemTable: .res $2
 InterruptTable: .res $2
 RunningProcessQueue: .res $2
@@ -30,38 +29,14 @@ FirstNode: .res .sizeof(nodes::Node), $00
 
 .code
 
-.proc KernelRq
-    ai16
-    pha
-    phx
-    phy     ;pushes registers to stack
-    ei
-
-    and $00ff
-    beq InvalidAPI
-
-    dec a
-;    cmp #maxapi
-    bcs InvalidAPI
-
-    asl A
-    tax
-    sta APIOffset
-    jmp (APITableLocation,x)
-
-.endproc
-
-.proc InvalidAPI
-.endproc
 
 .rodata
-APITableLocation:
 .asciiz "System Manager for 65C816"
 
 .segment "VECTORS"
 .word $ffff, $ffff  ;unused native vectors
-.ifdef KernelRq
-    .word KernelRq      ;Native COP vector
+.ifdef _kernelRq
+    .word _kernelRq      ;Native COP vector
 .else
     .error "Not doing anything without a KernelRq!"
 .endif

@@ -1,0 +1,58 @@
+;KERNELRQ: Calls to system API
+
+; When COP is called, the processor pushes the program bank counter, program counter+2, and status flags to the stack.
+; so our starting stack frame *right* after COP is called is:
+; +------+------------------------------+
+; |SP+$04|Program Bank                  |
+; |SP+$02|PC + 2                        |
+; |SP+$01|Status Register               |
+; +------+------------------------------+
+; And keep in mind that this will be on the process stack, not the system stack.
+
+.p816
+.macpack generic
+.macpack longbranch
+
+.export _kernelRq
+.import __SYSDP_LOAD__
+
+.apicount    .set 0
+.apiparmtabc .set 0
+
+.macro  NewAPIEntry location, parmcount
+    .local 
+    .pushseg
+    .rodata
+
+.endmacro
+
+.rodata
+APITableLocation:   .res $200
+APIParmTabLoc:      .res $100
+
+.code
+.proc _kernelRq
+    ai16
+    pha
+    phx
+    phy     ;pushes registers to stack
+    ei
+
+    and $00ff
+    beq InvalidAPI
+
+    dec a
+    cmp #maxapi
+    bcs InvalidAPI
+
+    asl A
+    tax
+    sta APIOffset
+    jmp (APITableLocation,x)
+
+.endproc
+
+.proc InvalidAPI
+.endproc
+
+.segment "SYSDP"
