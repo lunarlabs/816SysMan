@@ -1,0 +1,13 @@
+.scope StackFrame
+    reg_y   = 1
+    reg_x   = reg_y + 2
+    reg_c   = reg_x + 2
+    reg_dp  = reg_c + 2
+    reg_sr  = reg_dp + 1
+    reg_pc  = reg_sr + 1
+    reg_pb  = reg_pc + 2
+    s_regsf = reg_pb + 1 - reg_y
+
+    lib_rts = reg_pb + 1
+    s_libsf = lib_rts + 2 - lib_rts
+.endscope

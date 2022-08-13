@@ -8,6 +8,7 @@
 .include "macro/scope.a65"
 .include "asm/nodes.a65"
 .include "asm/memmgmt.a65"
+.include "asm/kernelrq.a65"
 
 .import _boot, _debug, _kernelRq
 .export _node_size = .sizeof(nodes::Node)

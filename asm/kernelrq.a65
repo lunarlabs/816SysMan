@@ -9,34 +9,52 @@
 ; +------+------------------------------+
 ; And keep in mind that this will be on the process stack, not the system stack.
 
-.p816
-.macpack generic
-.macpack longbranch
-
-.export _kernelRq
-.import __SYSDP_LOAD__
-
-.apicount    .set 0
-.apiparmtabc .set 0
+apicount    .set 0
 
 .macro  NewAPIEntry location, parmcount
     .local 
     .pushseg
-    .rodata
+    .segment "APIJMP"
+    .if .sizeof(location) <> 2
+        .error "API jump destinations must be in the non-system-dp area of bank zero."
+        .exitmacro
+    .else
+        .word location
+    .endif
+    .segment "APIPRM"
+    .if .sizeof(parmcount) <> 1
+        .error "Invalid parameter length passed to NewAPIEntry.parmcount."
+        .exitmacro
+    .else
+        .byte parmcount
+    .endif
+    .popseg
 
+    apicount .set apicount + 1
 .endmacro
 
-.rodata
-APITableLocation:   .res $200
-APIParmTabLoc:      .res $100
+.segment "SYSDP" : zeropage
+    .res APIOffset 2
 
 .code
 .proc _kernelRq
     ai16
+    phd
     pha
     phx
     phy     ;pushes registers to stack
     ei
+
+;Now the stack looks like this:
+; +------+------------------------------+
+; |SP+$0B|Program Bank                  |
+; |SP+$09|PC + 2                        |
+; |SP+$08|Status Register               |
+; |SP+$07|Direct Page Register          |
+; |SP+$05|.C                            |
+; |SP+$03|.X                            |
+; |SP+$01|.Y                            |
+; +------+------------------------------+
 
     and $00ff
     beq InvalidAPI
@@ -45,7 +63,7 @@ APIParmTabLoc:      .res $100
     cmp #maxapi
     bcs InvalidAPI
 
-    asl A
+    asl a
     tax
     sta APIOffset
     jmp (APITableLocation,x)
