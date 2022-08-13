@@ -10,7 +10,7 @@
 .include "asm/memmgmt.a65"
 .include "asm/kernelrq.a65"
 
-.import _boot, _debug, _kernelRq
+.import _boot, _debug
 .export _node_size = .sizeof(nodes::Node)
 
 .segment "SYSDP" : zeropage
@@ -64,8 +64,5 @@ FirstNode: .res .sizeof(nodes::Node), $00
 
 ; Aside from system initialization, we don't use emulation mode.
 .word $ffff, $ffff, $ffff, $ffff, $ffff, $ffff
-.ifdef _boot
-    .word _boot  ;RESET vector
-.else
-    .error "Not doing anything without a bootloader!"
+.word _boot  ;RESET vector
 .word $ffff

@@ -9,10 +9,12 @@
 ; +------+------------------------------+
 ; And keep in mind that this will be on the process stack, not the system stack.
 
+.import __APIJMP_LOAD__
+
 apicount    .set 0
+APITableLocation = __APIJMP_LOAD__
 
 .macro  NewAPIEntry location, parmcount
-    .local 
     .pushseg
     .segment "APIJMP"
     .if .sizeof(location) <> 2
@@ -34,7 +36,7 @@ apicount    .set 0
 .endmacro
 
 .segment "SYSDP" : zeropage
-    .res APIOffset 2
+    APIOffset:  .res 2
 
 .code
 .proc _kernelRq
@@ -60,7 +62,7 @@ apicount    .set 0
     beq InvalidAPI
 
     dec a
-    cmp #maxapi
+    cmp #apicount
     bcs InvalidAPI
 
     asl a
