@@ -17,19 +17,9 @@ APITableLocation = __APIJMP_LOAD__
 .macro  NewAPIEntry location, parmcount
     .pushseg
     .segment "APIJMP"
-    .if .sizeof(location) <> 2
-        .error "API jump destinations must be in the non-system-dp area of bank zero."
-        .exitmacro
-    .else
-        .word location
-    .endif
+    .word location
     .segment "APIPRM"
-    .if .sizeof(parmcount) <> 1
-        .error "Invalid parameter length passed to NewAPIEntry.parmcount."
-        .exitmacro
-    .else
-        .byte parmcount
-    .endif
+    .byte parmcount
     .popseg
 
     apicount .set apicount + 1
@@ -75,4 +65,5 @@ APITableLocation = __APIJMP_LOAD__
 .proc InvalidAPI
 .endproc
 
-.segment "SYSDP"
+;DEFINE API JUMP POINTS HERE
+NewAPIEntry _boot, 0

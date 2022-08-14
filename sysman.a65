@@ -4,14 +4,7 @@
 .macpack generic
 .macpack longbranch
 
-.include "macro/tweaks.a65"
-.include "macro/scope.a65"
-.include "asm/nodes.a65"
-.include "asm/memmgmt.a65"
-.include "asm/kernelrq.a65"
 
-.import _boot, _debug
-.export _node_size = .sizeof(nodes::Node)
 
 .segment "SYSDP" : zeropage
 CurrentList: .res $2
@@ -23,13 +16,20 @@ WaitingProcessTable: .res $2
 DeviceTable: .res $2
 FileSystemTable: .res $2
 
+.code
+.import _boot, _debug : absolute
+
+.include "macro/tweaks.a65"
+.include "macro/scope.a65"
+.include "asm/nodes.a65"
+.include "asm/memmgmt.a65"
+.include "asm/kernelrq.a65"
+
+.export _node_size = .sizeof(nodes::Node)
+
 .data
 FirstMemoryEntry: .res .sizeof(MemoryManagement::MemoryTableEntry), $00
 FirstNode: .res .sizeof(nodes::Node), $00
-
-
-.code
-
 
 .rodata
 .asciiz "System Manager for 65C816"
