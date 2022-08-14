@@ -1,0 +1,13 @@
+.enum nodeTypes
+    Unknown
+    Process
+    Interrupt
+    Device
+    MessagePort
+    Message
+    MessageReply
+    Resource
+    Library
+    FileSystem
+    Signal
+.endenum
