@@ -55,10 +55,18 @@
 .error "copyfwd called with incorrect number of parameters"
 .else
 			ai16
-			lda		size
-			ldx		.loword		source
-			ldy		.loword		dest
+			lda		#size
+			ldx		.loword		#source
+			ldy		.loword		#dest
 
 			mvn		source, dest
 .endif
+.endmacro
+
+.macro 		chdp	location	;change direct page register
+	acc16
+	pha
+	lda		#location
+	tcd
+	pla
 .endmacro

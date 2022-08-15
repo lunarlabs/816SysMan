@@ -1,0 +1,69 @@
+;KERNELRQ: Calls to system API
+
+; When COP is called, the processor pushes the program bank counter, program counter+2, and status flags to the stack.
+; so our starting stack frame *right* after COP is called is:
+; +------+------------------------------+
+; |SP+$04|Program Bank                  |
+; |SP+$02|PC + 2                        |
+; |SP+$01|Status Register               |
+; +------+------------------------------+
+; And keep in mind that this will be on the process stack, not the system stack.
+
+.import __APIJMP_LOAD__
+
+apicount    .set 0
+APITableLocation = __APIJMP_LOAD__
+
+.macro  NewAPIEntry location, parmcount
+    .pushseg
+    .segment "APIJMP"
+    .word location
+    .segment "APIPRM"
+    .byte parmcount
+    .popseg
+
+    apicount .set apicount + 1
+.endmacro
+
+.segment "SYSDP" : zeropage
+    APIOffset:  .res 2
+
+.code
+.proc _kernelRq
+    ai16
+    phd
+    pha
+    phx
+    phy     ;pushes registers to stack
+    ei
+
+;Now the stack looks like this:
+; +------+------------------------------+
+; |SP+$0B|Program Bank                  |
+; |SP+$09|PC + 2                        |
+; |SP+$08|Status Register               |
+; |SP+$07|Direct Page Register          |
+; |SP+$05|.C                            |
+; |SP+$03|.X                            |
+; |SP+$01|.Y                            |
+; +------+------------------------------+
+
+    and $00ff
+    beq InvalidAPI
+
+    dec a
+    cmp #apicount
+    bcs InvalidAPI
+
+    asl a
+    tax
+    sta APIOffset
+    jmp (APITableLocation,x)
+
+.endproc
+
+.proc InvalidAPI
+.endproc
+
+;DEFINE API JUMP POINTS HERE
+NewAPIEntry _boot, 0
