@@ -7,6 +7,8 @@
     blockLength .faraddr
 .endstruct
 
+.global FreeMemTable
+
 .data
 
 

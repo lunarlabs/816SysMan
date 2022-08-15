@@ -9,21 +9,11 @@
 ; +------+------------------------------+
 ; And keep in mind that this will be on the process stack, not the system stack.
 
-.import __APIJMP_LOAD__
+.include "../macro/api.a65"
 
-apicount    .set 0
+.import __APIJMP_LOAD__, __SYSDP_LOAD__
+
 APITableLocation = __APIJMP_LOAD__
-
-.macro  NewAPIEntry location, parmcount
-    .pushseg
-    .segment "APIJMP"
-    .word location
-    .segment "APIPRM"
-    .byte parmcount
-    .popseg
-
-    apicount .set apicount + 1
-.endmacro
 
 .segment "SYSDP" : zeropage
     APIOffset:  .res 2
@@ -47,6 +37,8 @@ APITableLocation = __APIJMP_LOAD__
 ; |SP+$03|.X                            |
 ; |SP+$01|.Y                            |
 ; +------+------------------------------+
+
+    chdp $00
 
     and $00ff
     beq InvalidAPI

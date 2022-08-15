@@ -11,3 +11,34 @@
     lib_rts = reg_pb + 1
     s_libsf = lib_rts + 2 - lib_rts
 .endscope
+
+apicount .set 0
+
+; For now, we're assuming that all code that will call any API entry will run in bank 0 ram.
+; If code will be run from higher ram, the RTL stack data will be 3 bytes instead of RTS's 2.
+
+.macro  NewAPIEntry location, parmcount, errorloc
+    .pushseg
+    .segment "APIJMP"
+    .word location
+    .segment "APIPRM"
+    .byte parmcount
+
+    .code
+
+    .export     .ident(.concat("_api_", .string(location))) := *
+    acc8
+    lda         #apicount
+    cop         $00
+    .out        .sprintf("Assigned %s to api entry $%02x", .string(location), apicount)
+    .ifnblank   errorloc    ;okay, make sure you export your error label if you make error handling code...
+        bcs     errorloc
+    .else
+        .warning .concat(.string(location), " has no error handler... ARE YOU SURE NOTHING WILL GO WRONG?")
+    .endif
+    rts
+    
+    .popseg
+
+    apicount .set apicount + 1
+.endmacro

@@ -4,17 +4,15 @@
 .macpack generic
 .macpack longbranch
 
-
-
 .segment "SYSDP" : zeropage
 CurrentList: .res $2
 CurrentNode: .res $2
 FreeMemTable: .res $2
-InterruptTable: .res $2
 RunningProcessQueue: .res $2
 WaitingProcessTable: .res $2
 DeviceTable: .res $2
 FileSystemTable: .res $2
+.global CurrentList, CurrentNode, FreeMemTable, RunningProcessQueue, WaitingProcessTable, DeviceTable, FileSystemTable
 
 .code
 .import _boot, _debug : absolute
@@ -28,8 +26,6 @@ FileSystemTable: .res $2
 .export _node_size = .sizeof(nodes::Node)
 
 .data
-FirstMemoryEntry: .res .sizeof(MemoryManagement::MemoryTableEntry), $00
-FirstNode: .res .sizeof(nodes::Node), $00
 
 .rodata
 .asciiz "System Manager for 65C816"
