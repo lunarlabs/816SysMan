@@ -8,8 +8,14 @@
 .endstruct
 
 .global FreeMemTable
+.export FirstMemTableEntry
+
+.code
 
 .data
+FirstMemTableEntry:
+        .word           $0000, $0000
+        .faraddr        $000000, $000000
 
 
 .endscope
