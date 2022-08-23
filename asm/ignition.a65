@@ -29,37 +29,49 @@ _boot:
         lda #%01011010  ;first memory test
         ldx #0
 
-Test:   sta $0000,x     ;write to the zero page...
+Test1:  sta $0000,x     ;write to the zero page...
         sta $0100,x     ;and the stack page
         inx             
-        bne Test
+        bne Test1
 
         ldy #0
 
-Wait:   inx
-        bne Wait
+Wait1:  inx
+        bne Wait1
         iny
-        bne Wait        ;wait to see if the ram keeps data over time...
+        bne Wait1        ;wait to see if the ram keeps data over time...
 
-Check:  cmp $0000,x     
+Check1: cmp $0000,x     
         bne Die         ;Not equal! Get dead, kid.
         cmp $0100,x
         bne Die
         inx
-        bne Check
+        bne Check1
 
         cmp #%10100101  ;Did we run the second test?
         beq Step2       ;If so, go to next part.
 
         lda #%10100101  ;load the inverse test pattern.
-        bra Test        ;And check again.
+        bra Test1       ;And check again.
 
 Die:    stp             ;Bad RAM. Halt the CPU, leaving the fault light on.
 
-Step2:  clc
+Step2:  ldx #$FF
+        txa             ;stack pointer is now $1FF
+        
+        clc
         xce             ;We are now in native mode! This turns the E signal off.
 
-        ;Now set the stack pointer...
+        ai16
+        lda #(__DATA_SIZE__ - 1) ;block moves require number of bytes >minus one< in the accumulator.
+        ldx #__DATA_LOAD__
+        ldy #__DATA_RUN__
+
+        mvn 0,0    ;copy the data out of ROM into RAM so it can be modified later.
+
+        ;Now we go ahead and load in the hardware...
+        ;Device nodes use .CONDES to get their nodes added in, so figure that crap out.
+        ;take a look at https://github.com/cc65/cc65/blob/master/libsrc/runtime/condes.s
 
 .endproc
 
