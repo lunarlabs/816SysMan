@@ -27,10 +27,9 @@
 
 .code
 
-; With the accumulator set to the address of a node, gives the next node in the list.
-; A IN: Address of the origin node. (16 bits)
-; A OUT: The origin node's following node. (16 bits)
-; STATUS FLAGS: Sets C if the returned node is the header (that is, the origin was the tail), clears it otherwise.
+; Moves the CurrentNode pointer to the node specified in the origin's nextPtr.
+; STATUS FLAGS: Sets c if the returned node is the header (that is, the origin was the tail), clears it otherwise.
+;               Sets z if CurrentNode points to the header of an empty list.
 .proc   NextNode
 
 .endproc
