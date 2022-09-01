@@ -19,9 +19,9 @@ FileSystemTable: .res $2
 
 .include "macro/tweaks.a65"
 .include "macro/scope.a65"
-.include "asm/nodes.a65"
-.include "asm/memmgmt.a65"
-.include "asm/kernelrq.a65"
+.include "include/nodes.a65"
+.include "include/memmgmt.a65"
+.include "include/kernelrq.a65"
 
 .export _node_size = .sizeof(nodes::Node)
 
