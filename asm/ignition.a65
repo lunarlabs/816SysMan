@@ -4,6 +4,7 @@
 ;Since we want to use the signal from the "E" pin as a fault indicator,
 ;the reboot code will pretty much be the only code run in emu mode.
 
+.out "Assembling Ignition..."
 
 .p816
 .macpack generic

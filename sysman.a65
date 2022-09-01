@@ -1,5 +1,6 @@
 ;   Main build file for 816 System Manager
 
+.out "Assembling Sysman..."
 .p816
 .macpack generic
 .macpack longbranch
