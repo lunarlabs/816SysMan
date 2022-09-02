@@ -16,6 +16,7 @@ apicount .set 0
 
 ; For now, we're assuming that all code that will call any API entry will run in bank 0 ram.
 ; If code will be run from higher ram, the RTL stack data will be 3 bytes instead of RTS's 2.
+; Parmcount is how many bytes are used as parameters.
 
 .macro  NewAPIEntry location, parmcount, errorloc
     .pushseg

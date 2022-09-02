@@ -8,7 +8,6 @@
 .segment "SYSDP" : zeropage
 CurrentList: .res $2
 CurrentNode: .res $2
-FreeMemTable: .res $2
 RunningProcessQueue: .res $2
 WaitingProcessTable: .res $2
 DeviceTable: .res $2

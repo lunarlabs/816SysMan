@@ -10,7 +10,27 @@
 .global FreeMemTable
 .export FirstMemTableEntry
 
+.segment "SYSDP" : zeropage
+    FreeMemTable: .res $2
+    CurrentMemPtr: .res $2
+
 .code
+
+; User Stack Frame:
+; +------+------------------------------+
+; |SP+$0F|Banks requested               |
+; |SP+$0D|Pages+bytes requested         |
+; +------+------------------------------+
+.proc memalloc
+        ai16
+        clc         ;carry bit will be used to signify that something went wrong.
+
+        lda     FreeMemTable
+        sta     CurrentMemPtr   ;start at the first entry.
+
+        
+
+.endproc
 
 .data
 FirstMemTableEntry:

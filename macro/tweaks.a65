@@ -64,9 +64,11 @@
 .endmacro
 
 .macro 		chdp	location	;change direct page register
+	php
 	acc16
 	pha
 	lda		#location
 	tcd
 	pla
+	plp
 .endmacro
